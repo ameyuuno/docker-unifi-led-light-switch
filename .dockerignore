@@ -1,0 +1,16 @@
+### macOS ###
+.DS_Store
+
+### Common ###
+LICENSE
+README.md
+
+### Git ###
+.git/
+.gitignore
+
+### GitHub ###
+.github/
+
+### Docker ###
+Dockerfile
