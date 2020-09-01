@@ -14,3 +14,6 @@ README.md
 
 ### Docker ###
 Dockerfile
+
+### Other ###
+.env
