@@ -3,6 +3,7 @@ name: Build docker images
 on:
   push:
     paths:
+      - '.github/'
       - 'scripts/'
       - 'Dockerfile'
       - 'Makefile'
