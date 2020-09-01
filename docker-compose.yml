@@ -1,0 +1,14 @@
+version: "3.7"
+
+services: 
+  unifi-led-light-switch:
+    image: ameyuuno/unifi-led-light-switch
+    container_name: unifi-led-light-switch
+    network_mode: host
+    environment: 
+      UNIFI_USERNAME: $UNIFI_USERNAME
+      UNIFI_PASSWORD: $UNIFI_PASSWORD
+      UNIFI_BASE_URL: $UNIFI_BASE_URL
+      UNIFI_LED_SWITCH_ON_CRONTAB: $UNIFI_LED_SWITCH_ON_CRONTAB
+      UNIFI_LED_SWITCH_OFF_CRONTAB: $UNIFI_LED_SWITCH_OFF_CRONTAB
+      TIMEZONE: $TIMEZONE
