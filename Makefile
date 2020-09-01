@@ -13,7 +13,7 @@ endif
 
 
 docker-build-amd64:
-	docker buildx build \
+	docker buildx build --load \
 		--platform linux/amd64 \
 		--build-arg BASEIMAGE_TAG=alpine-3.9.6 \
 		--tag ameyuuno/unifi-led-light-switch:$(VERSION) \
@@ -22,7 +22,7 @@ docker-build-amd64:
 
 
 docker-build-arm64:
-	docker buildx build \
+	docker buildx build --load \
 		--platform linux/arm64 \
 		--build-arg BASEIMAGE_TAG=alpine-3.9.6-arm64 \
 		--tag ameyuuno/unifi-led-light-switch:$(VERSION)-arm64 \
