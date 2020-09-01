@@ -9,6 +9,12 @@ on:
       - 'Makefile'
     branches: 
       - master
+  pull_request:
+    branches:
+      - master
+  create:
+    tags:
+      - v*
 
 jobs:
   docker:
