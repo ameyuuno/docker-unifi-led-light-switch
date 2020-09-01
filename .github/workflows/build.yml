@@ -26,7 +26,7 @@ jobs:
       
       - name: Build docker image
         run: |
-          git tag --list
+          git fetch --tags
           make docker-build-all
 
       - name: Push docker image into registry
