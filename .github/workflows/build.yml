@@ -1,17 +1,6 @@
 name: Build docker images
 
 on:
-  push:
-    paths:
-      - '.github/**'
-      - 'scripts/**'
-      - 'Dockerfile'
-      - 'Makefile'
-    branches: 
-      - master
-  pull_request:
-    branches:
-      - master
   create:
     tags:
       - v*
