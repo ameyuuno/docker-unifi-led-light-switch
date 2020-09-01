@@ -19,9 +19,9 @@ case "${led_state}" in
         ;;
 esac
 
-username=$2
-password=$3
-baseUrl=$4
+username=${UNIFI_USERNAME}
+password=${UNIFI_PASSWORD}
+baseUrl=${UNIFI_BASE_URL}
 cookie=/tmp/unifi-cookie
 
 curl_cmd="curl --tlsv1 --silent --cookie ${cookie} --cookie-jar ${cookie} --insecure "
