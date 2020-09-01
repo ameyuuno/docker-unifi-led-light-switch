@@ -2,6 +2,8 @@ FROM ameyuuno/baseimage:alpine-3.9.6
 
 ARG PLATFORM
 
+ENV TIMEZONE=UTC
+
 COPY ./scripts/install-supercronic.sh ./install-supercronic.sh
 
 RUN apk add --no-cache --update curl jq && rm -rf /var/cache/apk/* && \
