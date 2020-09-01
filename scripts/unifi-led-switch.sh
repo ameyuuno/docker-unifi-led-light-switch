@@ -14,7 +14,7 @@ case "${led_state}" in
         state=false
         ;;
     *)
-        echo "Unknown state argument value: ${led_state}"
+        echo "Unknown state argument value: '${led_state}'"
         exit 1
         ;;
 esac

@@ -33,7 +33,7 @@ case "${platform}" in
         hash=f011a67f4c56acbef7a75222cb1d7c0d1bb29968
         ;;
     *)
-        echo "Unknown platform argument value: ${PLATFORM}"
+        echo "Unknown platform argument value: '${PLATFORM}'"
         exit 1
         ;;
 esac
