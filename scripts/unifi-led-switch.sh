@@ -24,12 +24,23 @@ password=${UNIFI_PASSWORD}
 baseUrl=${UNIFI_BASE_URL}
 cookie=/tmp/unifi-cookie
 
-curl_cmd="curl --tlsv1 --silent --cookie ${cookie} --cookie-jar ${cookie} --insecure "
+make_request() {
+    payload=$1
+    url=$2
+
+    curl --tlsv1 --silent --cookie ${cookie} --cookie-jar ${cookie} --insecure --data "${payload}" "${url}"
+}
+
+print_status() {
+    cat | jq '.meta | if .rc == "ok" then .rc else .rc + "(" + .msg + ")" end | "status: " + .'
+}
 
 echo "Login on UniFi." 
-${curl_cmd} --data "{\"username\":\"${username}\", \"password\":\"${password}\"}" ${baseUrl}/api/login | jq '.meta | .rc'
+make_request "{\"username\": \"${username}\", \"password\": \"${password}\"}" "${baseUrl}/api/login" | print_status
 
 echo "Change state of LED to ${led_state}."
-${curl_cmd} --data "{\"led_enabled\":\"${state}\"}" ${baseUrl}/api/s/default/set/setting/mgmt/ | jq '.meta | .rc'
+make_request "{\"led_enabled\":\"${state}\"}" "${baseUrl}/api/s/default/set/setting/mgmt/" | print_status
+
+rm ${cookie}
 
 echo "Done."
