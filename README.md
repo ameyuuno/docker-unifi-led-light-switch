@@ -58,6 +58,10 @@ docker up -d --name unifi-led-light-switch \
 
 ## About
 
+[GitHub Repository](https://github.com/ameyuuno/docker-unifi-led-light-switch)
+
+[Docker Hub](https://hub.docker.com/r/ameyuuno/unifi-led-light-switch)
+
 ### Movitation
 
 I bought UDM last week and put it in my bedroom, because UDM is beautiful (ﾉ´з`)ノ. But at night its LED light disturbs 
