@@ -22,7 +22,9 @@ jobs:
           qemu-version: 4.2.0-7
       
       - name: Build docker image
-        run: make docker-build-all
+        run: |
+          git fetch --tags
+          make docker-build-all
 
       - name: Push docker image into registry
         run: |
