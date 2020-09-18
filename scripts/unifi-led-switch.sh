@@ -39,7 +39,10 @@ echo "Login on UniFi."
 make_request "{\"username\": \"${username}\", \"password\": \"${password}\"}" "${baseUrl}/api/login" | print_status
 
 echo "Change state of LED to ${led_state}."
-make_request "{\"led_enabled\":\"${state}\"}" "${baseUrl}/api/s/default/set/setting/mgmt/" | print_status
+make_request "{\"led_enabled\": \"${state}\"}" "${baseUrl}/api/s/default/set/setting/mgmt/" | print_status
+
+echo "Logout." 
+make_request "" "${baseUrl}/api/logout" | print_status
 
 rm ${cookie}
 
