@@ -11,20 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
       - name: Setup docker buildx
         uses: crazy-max/ghaction-docker-buildx@v1.6.1
         with:
           buildx-version: v0.4.1
           qemu-version: 4.2.0-7
+
+      - name: Checkout project and fetch all tags
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       
       - name: Build docker image
-        run: |
-          git fetch --tags
-          make docker-build-all
+        run: make docker-build-all
 
       - name: Push docker image into registry
         run: |
