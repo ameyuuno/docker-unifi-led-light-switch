@@ -1,11 +1,12 @@
-COMMIT=$(shell git rev-parse --short HEAD)
-TAG_NAME=$(shell git describe --abbrev=0)
+COMMIT=$(shell git rev-parse HEAD)
+TAG_COMMIT=$(shell git rev-list --tags --max-count=1)
+TAG_NAME=$(shell git describe --tags $(TAG_COMMIT))
 
 VERSION=
-ifeq ($(TAG_NAME),$(shell git describe --abbrev=4))
+ifeq ($(COMMIT),$(TAG_COMMIT))
 	VERSION=$(TAG_NAME)
 else
-	VERSION=$(COMMIT)
+	VERSION=$(shell git rev-parse --short HEAD)
 endif
 
 
