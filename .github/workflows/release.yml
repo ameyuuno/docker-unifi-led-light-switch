@@ -23,9 +23,14 @@ jobs:
           fetch-depth: 0
       
       - name: Build docker image
-        run: make docker-build-all
-
-      - name: Push docker image into registry
         run: |
-          echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login docker.io --username "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-          make docker-push-all
+          echo "git describe --abbrev=0"
+          git describe --abbrev=0
+          echo "git describe --abbrev=4"
+          git describe --abbrev=4
+      #     make docker-build-all
+
+      # - name: Push docker image into registry
+      #   run: |
+      #     echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login docker.io --username "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+      #     make docker-push-all
