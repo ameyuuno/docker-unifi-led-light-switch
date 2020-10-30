@@ -56,6 +56,6 @@ make_request "{\"led_enabled\": \"${state}\"}" "${baseUrl}/api/s/default/set/set
 echo "Logout."
 make_request "" "${baseUrl}/api/logout" | extract_status | print_status_and_set_return_code
 
-rm ${cookie}
+rm -f ${cookie}
 
 echo "Done."
