@@ -31,18 +31,30 @@ make_request() {
     curl --tlsv1 --silent --cookie ${cookie} --cookie-jar ${cookie} --insecure --data "${payload}" "${url}"
 }
 
-print_status() {
-    cat | jq '.meta | if .rc == "ok" then .rc else .rc + "(" + .msg + ")" end | "status: " + .'
+extract_status() {
+    cat | jq -r '.meta | if .rc == "ok" then .rc else .rc + "(" + .msg + ")" end | "Status: " + .'
 }
 
-echo "Login on UniFi." 
-make_request "{\"username\": \"${username}\", \"password\": \"${password}\"}" "${baseUrl}/api/login" | print_status
+print_status_and_set_return_code() {
+    status=$(cat)
+    echo ${status}
+
+    if [ "${status}" != "Status: ok" ]; then
+        echo "Return non-zero code because an error was occurred."
+        return 1
+    fi
+
+    return 0
+}
+
+echo "Login on UniFi."
+make_request "{\"username\": \"${username}\", \"password\": \"${password}\"}" "${baseUrl}/api/login" | extract_status | print_status_and_set_return_code
 
 echo "Change state of LED to ${led_state}."
-make_request "{\"led_enabled\": \"${state}\"}" "${baseUrl}/api/s/default/set/setting/mgmt/" | print_status
+make_request "{\"led_enabled\": \"${state}\"}" "${baseUrl}/api/s/default/set/setting/mgmt/" | extract_status | print_status_and_set_return_code
 
-echo "Logout." 
-make_request "" "${baseUrl}/api/logout" | print_status
+echo "Logout."
+make_request "" "${baseUrl}/api/logout" | extract_status | print_status_and_set_return_code
 
 rm ${cookie}
 
