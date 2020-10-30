@@ -19,9 +19,9 @@ case "${led_state}" in
         ;;
 esac
 
-username=${UNIFI_USERNAME}
-password=${UNIFI_PASSWORD}
-baseUrl=${UNIFI_BASE_URL}
+username=${UNIFI_USERNAME:?"Missing required username of UniFi account."}
+password=${UNIFI_PASSWORD:?"Missing required password of UniFi account."}
+baseUrl=${UNIFI_BASE_URL:?"Missing required URL of UniFi controller."}
 cookie=/tmp/unifi-cookie
 
 make_request() {
