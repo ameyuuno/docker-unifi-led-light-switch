@@ -34,7 +34,7 @@ controller (for example, UniFi Dream Machine) by schedule.
 
 ```
 docker pull ameyuuno/unifi-led-light-switch
-docker up -d --name unifi-led-light-switch \
+docker run -d --name unifi-led-light-switch \
     --network host \
     -e UNIFI_USERNAME="usernmae" \
     -e UNIFI_PASSWORD="password" \
