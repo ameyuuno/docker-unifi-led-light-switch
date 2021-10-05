@@ -9,30 +9,11 @@ else
 	VERSION=$(shell git rev-parse --short HEAD)
 endif
 
-
-.PHONY: docker-build-all docker-push-all
-
-
-docker-build-amd64:
-	docker buildx build --load \
-		--platform linux/amd64 \
-		--build-arg BASEIMAGE_TAG=alpine-3.9.6 \
-		--tag ameyuuno/unifi-led-light-switch:$(VERSION) \
-		--tag ameyuuno/unifi-led-light-switch:$(VERSION)-amd64 \
-		.
+IMAGE=ghcr.io/ameyuuno/unifi-led-light-switch
 
 
-docker-build-arm64:
-	docker buildx build --load \
-		--platform linux/arm64 \
-		--build-arg BASEIMAGE_TAG=alpine-3.9.6-arm64 \
-		--tag ameyuuno/unifi-led-light-switch:$(VERSION)-arm64 \
-		.
+.PHONY: docker-build-multiplatform
 
 
-docker-build-all: docker-build-amd64 docker-build-arm64
-
-
-docker-push-all:
-	docker tag ameyuuno/unifi-led-light-switch:$(VERSION)-amd64 ameyuuno/unifi-led-light-switch:latest
-	docker push ameyuuno/unifi-led-light-switch
+docker-build-multiplatform:
+	docker buildx build --push --platform linux/amd64,linux/arm64 --tag $(IMAGE):$(VERSION) --tag $(IMAGE):latest .
