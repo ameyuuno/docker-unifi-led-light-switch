@@ -1,4 +1,5 @@
 import os
+import warnings
 
 import click
 from yarl import URL
@@ -14,6 +15,8 @@ LED_STATES = {
 @click.command()
 @click.argument("state", required=True)
 def switch(state: str) -> None:
+    warnings.filterwarnings("ignore")
+
     if state not in LED_STATES:
         raise click.UsageError(f"Unknown LED state '{state}'. It can be only 'on' or 'off'.")
 
