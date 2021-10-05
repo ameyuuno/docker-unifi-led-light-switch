@@ -1,5 +1,9 @@
 #!/bin/sh
 
+cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+echo "${TIMEZONE}" > /etc/timezone
+echo "Set timezone: ${TIMEZONE} [$(date)]"
+
 echo "Generate crontab schedule file."
 
 led_switch_on_schedule=${UNIFI_LED_SWITCH_ON_CRONTAB:-"0 7 * * *"}
@@ -13,4 +17,5 @@ echo "---------"
 cat /srv/unifi-led-switch-crontab-schedule
 echo "---------"
 
-echo "Done."
+echo "Execute: [$@]"
+exec $@
