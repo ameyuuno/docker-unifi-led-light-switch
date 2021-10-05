@@ -18,9 +18,9 @@ Use tag `v2.*.*` for UDM with Unifi OS (images are multiplatform):
 
 If your UDM does not have Unifi OS, use tag `v1.*.*` (use specific tag for specific platform):
 
-- `ameyuuno/unifi-led-light-switch:v1.0.0`
-- `ameyuuno/unifi-led-light-switch:v1.0.0-amd64`
-- `ameyuuno/unifi-led-light-switch:v1.0.0-arm64`
+- `ameyuuno/unifi-led-light-switch:v1.1.0`
+- `ameyuuno/unifi-led-light-switch:v1.1.0-amd64`
+- `ameyuuno/unifi-led-light-switch:v1.1.0-arm64`
 
 ### Using docker
 
