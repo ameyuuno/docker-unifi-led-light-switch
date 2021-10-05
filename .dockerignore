@@ -15,5 +15,19 @@ README.md
 ### Docker ###
 Dockerfile
 
-### Other ###
+### Python ###
+__pycache__/
+*.py[cod]
+
+# Environments
+.venv/
+
+# pyenv
+.python-version
+
+# build
+dist/
+
+### JetBrains ###
+.idea/
 .env
