@@ -1,11 +1,11 @@
 version: "3.7"
 
-services: 
+services:
   unifi-led-light-switch:
-    image: ameyuuno/unifi-led-light-switch:latest
+    image: ghcr.io/ameyuuno/unifi-led-light-switch:latest
     container_name: unifi-led-light-switch
     network_mode: host
-    environment: 
+    environment:
       UNIFI_USERNAME: $UNIFI_USERNAME
       UNIFI_PASSWORD: $UNIFI_PASSWORD
       UNIFI_BASE_URL: $UNIFI_BASE_URL
