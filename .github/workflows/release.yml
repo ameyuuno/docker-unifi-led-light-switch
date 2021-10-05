@@ -23,9 +23,6 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build docker image
-        run: make docker-build-all
-
-      - name: Push docker image into registry
         run: |
-          echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login docker.io --username "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-          make docker-push-all
+          echo "${{ secrets.REGISTRY_TOKEN }}" | docker login ghcr.io -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
+          make docker-build-multiplatform
