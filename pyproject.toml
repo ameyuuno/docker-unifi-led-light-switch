@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "unifi-led-switch"
+version = "2.0.0"
+description = ""
+authors = ["ameyuuno <ameyuuno@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^8.0.1"
+requests = "^2.26.0"
+yarl = "^1.6.3"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+unifi-led-switch = 'unifi_led_switch.cli:switch'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
