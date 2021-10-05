@@ -1,5 +1,22 @@
 ### macOS ###
 .DS_Store
 
-### Other ###
+### Python ###
+__pycache__/
+*.py[cod]
+
+# Environments
+.venv/
+
+# pyenv
+.python-version
+
+# build
+dist/
+
+### JetBrains ###
+.idea/
+
+### Project Files ###
+.dev/
 .env
