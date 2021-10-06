@@ -24,5 +24,6 @@ jobs:
 
       - name: Build docker image
         run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
           echo "${{ secrets.REGISTRY_TOKEN }}" | docker login -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
           make docker-build-multiplatform
