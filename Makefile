@@ -9,7 +9,7 @@ else
 	VERSION=$(shell git rev-parse --short HEAD)
 endif
 
-IMAGE=ghcr.io/ameyuuno/unifi-led-light-switch
+IMAGE=ameyuuno/unifi-led-light-switch
 
 
 .PHONY: docker-build-multiplatform

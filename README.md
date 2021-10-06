@@ -12,9 +12,9 @@ example, UniFi Dream Machine) by schedule.
 
 Use tag `v2.*.*` for UDM with Unifi OS (images are multiplatform): 
 
-- `ghcr.io/ameyuuno/unifi-led-light-switch`
-- `ghcr.io/ameyuuno/unifi-led-light-switch:latest`
-- `ghcr.io/ameyuuno/unifi-led-light-switch:v2.0.0`
+- `ameyuuno/unifi-led-light-switch`
+- `ameyuuno/unifi-led-light-switch:latest`
+- `ameyuuno/unifi-led-light-switch:v2.0.0`
 
 If your UDM does not have Unifi OS, use tag `v1.*.*` (use specific tag for specific platform):
 

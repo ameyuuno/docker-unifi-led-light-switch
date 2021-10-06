@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   unifi-led-light-switch:
-    image: ghcr.io/ameyuuno/unifi-led-light-switch:latest
+    image: ameyuuno/unifi-led-light-switch:latest
     container_name: unifi-led-light-switch
     network_mode: host
     environment:
