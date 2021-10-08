@@ -12,8 +12,12 @@ endif
 IMAGE=ameyuuno/unifi-led-light-switch
 
 
-.PHONY: docker-build-multiplatform
+.PHONY: docker-build
 
 
-docker-build-multiplatform:
-	docker buildx build --push --platform linux/amd64,linux/arm64 --tag $(IMAGE):$(VERSION) --tag $(IMAGE):latest .
+docker-build:
+	docker buildx build --load --platform linux/arm64 --tag $(IMAGE):$(VERSION) --tag $(IMAGE):latest .
+	docker buildx build --load --platform linux/amd64 --tag $(IMAGE):$(VERSION) --tag $(IMAGE):latest .
+
+docker-push:
+	docker push $(IMAGE)
